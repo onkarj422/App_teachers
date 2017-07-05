@@ -2,6 +2,7 @@ package oj.app_teachers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -9,5 +10,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Toast.makeText(LoginActivity.this,"Coding", Toast.LENGTH_LONG).show();
     }
 }

@@ -2,17 +2,11 @@ package oj.app_teachers;
 
 import android.app.Application;
 import android.content.Context;
+import android.database.Cursor;
 import android.widget.Toast;
-
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static java.security.AccessController.getContext;
+import com.raizlabs.android.dbflow.sql.language.Select;
 
 /**
  * Created by Onkar J on 21-07-2017.
@@ -30,13 +24,16 @@ public class MyApplication extends Application {
         u.setId(1);
         u.setName("XYZ");
         u.save();
-
-        List<User> UserList = SQLite.select()
-                .from(User.class)
-                .queryList();
-
         Context context = getApplicationContext();
-        for (int i=0;i<=UserList.size();i++)
-            Toast.makeText(context, Arrays.toString(UserList.toArray()), Toast.LENGTH_SHORT).show();
+        String d;
+        Cursor cursor = new Select(User_Table.name).from(User.class).query();
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            d=cursor.getString(0);
+            Toast.makeText(context,"Logged in successfully"+d,Toast.LENGTH_SHORT).show();
+            cursor.moveToNext();
+        }
+        cursor.close();
+
     }
 }

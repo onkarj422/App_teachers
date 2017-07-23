@@ -6,13 +6,17 @@ import android.database.Cursor;
 import android.widget.Toast;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.sql.language.Select;
+
+import java.util.List;
 
 /**
  * Created by Onkar J on 21-07-2017.
  */
 
 public class MyApplication extends Application {
+    int d;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -22,18 +26,39 @@ public class MyApplication extends Application {
         // FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
         User u = new User();
         u.setId(1);
-        u.setName("XYZ");
+        u.setName("vivian");
         u.save();
+        u.setId(2);
+        u.setName("onkar");
+        u.save();
+        u.setId(3);
+        u.setName("karan");
+        u.save();
+        u.setId(4);
+        u.setName("vijay");
+        u.save();
+
         Context context = getApplicationContext();
-        String d;
-        Cursor cursor = new Select(User_Table.name).from(User.class).query();
+
+        List<User> us=SQLite.select().from(User.class).where(User_Table.id.is(3)).queryList();
+for(User ut:us)
+{
+    Toast.makeText(context,"Logged in successfully"+ut.getName(),Toast.LENGTH_SHORT).show();
+}//By changing the id u will be able to access the name
+        //for ex:by setting id=1 u will be able to access vivian.
+
+        /*Cursor cursor= SQLite.select().from(User.class).query();
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            d=cursor.getString(0);
-            Toast.makeText(context,"Logged in successfully"+d,Toast.LENGTH_SHORT).show();
-            cursor.moveToNext();
+       // while (!cursor.isAfterLast()) {
+           d=cursor.getString(2);
+
+
+         //   cursor.moveToNext();
+
+        }*/
+
+        //cursor.close();
+
         }
-        cursor.close();
 
     }
-}

@@ -22,8 +22,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     // annotationProcessor now supported in Android Gradle plugin 2.2
     // See https://bitbucket.org/hvisser/android-apt/wiki/Migration
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
@@ -32,4 +30,8 @@ dependencies {
 
     // sql-cipher database encryption (optional)
     compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support.constraint:constraint-layout:+'
+    compile 'com.android.support:design:26.+'
+    testCompile 'junit:junit:4.12'
 }

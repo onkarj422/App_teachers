@@ -15,22 +15,32 @@ public class User extends BaseModel {
     @PrimaryKey
     private int id;
 
-    @Column
+    @Column(name= "Name")
     private String name;
+
+    @Column(name = "Password")
+    private String password;
+
+    @Column(name = "Role")
+    private String role;
+
+
+
 
     public int getId() {
         return id;
+    }
+    public String getPassword() { return password; }
+    public String getRole() { return role; }
+    public String getName() {
+        return name;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+    public void setName(String name) {this.name = name;}
+    public void setPassword(String password) { this.password = password; }
+    public void setRole(String role) { this.role = role; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

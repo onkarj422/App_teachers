@@ -3,19 +3,18 @@ package oj.app_teachers;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.sql.language.Select;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Onkar J on 21-07-2017.
  */
 
 public class MyApplication extends Application {
-    int d;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,21 +37,15 @@ public class MyApplication extends Application {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean("firstTime", true);
             editor.apply();
-        }
-
-    public int selectQuery(String CompareName, String ComparePassword ) {
-        int flag=0;
-        List<User> us=SQLite.select(User_Table.Password).from(User.class).where(User_Table.Name.is(CompareName)).queryList();
-        String[] array = new String[us.size()];
-        int index = 0;
-        for (Object value : us) {
-            array[index] = String.valueOf( value );
-            index++;
-        }
-        if (Objects.equals(ComparePassword, array[0])) {
-            flag=1;
-        }
-        return flag;
+        // Above code runs only once per installation. This is the initialization of database which needed only once per installation.
     }
 
+    public String selectQuery(String CompareName) {
+        List<User> UserList = SQLite.select(User_Table.Password).from(User.class).where(User_Table.Name.is(CompareName)).queryList();
+        String Text = null;
+        for (User value : UserList) {
+            Text = value.getPassword();
+        }
+        return Text;
     }
+}

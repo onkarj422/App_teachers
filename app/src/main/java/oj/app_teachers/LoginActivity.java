@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editLogin;
@@ -28,13 +30,12 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editPassword.getText().toString().toLowerCase();
                 Context context = getApplicationContext();
                 MyApplication s = new MyApplication();
-                if (s.selectQuery(loginId, password)==1) {
-                    Toast.makeText(context,"Logged in successfully",Toast.LENGTH_SHORT).show();
+                if (Objects.equals(s.selectQuery(loginId), password)) {
+                    Toast.makeText(context,"Login Successful",Toast.LENGTH_SHORT).show();
                     nextActivity();
                 }else {
                     Toast.makeText(context,"Login Failed, Please Check Username or Password",Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }

@@ -40,12 +40,20 @@ public class MyApplication extends Application {
         // Above code runs only once per installation. This is the initialization of database which needed only once per installation.
     }
 
-    public String selectQuery(String CompareName) {
+    public String selectPassword(String CompareName) {
         List<User> UserList = SQLite.select(User_Table.Password).from(User.class).where(User_Table.Name.is(CompareName)).queryList();
-        String Text = null;
+        String TextPassword = null;
         for (User value : UserList) {
-            Text = value.getPassword();
+            TextPassword = value.getPassword();
         }
-        return Text;
+        return TextPassword;
+    }
+    public String selectRole(String CompareName) {
+        List<User> UserList = SQLite.select(User_Table.Role).from(User.class).where(User_Table.Name.is(CompareName)).queryList();
+        String TextRole = null;
+        for (User value : UserList) {
+            TextRole = value.getRole();
+        }
+        return TextRole;
     }
 }

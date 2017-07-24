@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editLogin;
     private EditText editPassword;
+    public String MESSAGE = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String loginId = editLogin.getText().toString().toLowerCase();
                 String password = editPassword.getText().toString().toLowerCase();
+                MESSAGE = loginId;
                 Context context = getApplicationContext();
                 MyApplication s = new MyApplication();
-                if (Objects.equals(s.selectQuery(loginId), password)) {
+                if (Objects.equals(s.selectPassword(loginId), password)) {
                     Toast.makeText(context,"Login Successful",Toast.LENGTH_SHORT).show();
                     nextActivity();
                 }else {
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void nextActivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("loginID",MESSAGE);
         startActivity(intent);
     }
 }

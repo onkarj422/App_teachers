@@ -24,9 +24,6 @@ public class User extends BaseModel {
     @Column(name = "Role")
     private String role;
 
-
-
-
     public int getId() {
         return id;
     }

@@ -31,27 +31,27 @@ public class MainActivity extends AppCompatActivity {
         });
         MyApplication s = new MyApplication();
         Intent intent = getIntent();
-        String loginID = intent.getStringExtra("loginID");
+        String loginID = intent.getStringExtra("loginId");
 
         if (Objects.equals(s.selectRole(loginID), "student")) {
-            ViewAttendance();
+            viewAttendance();
         }else if (Objects.equals(s.selectRole(loginID), "teacher")){
-            TakeAttendance();
+            takeAttendance();
         }
     }
 
-    public void TakeAttendance() {
-        Button TakeButton =new Button(this);
+    public void takeAttendance() {
+        Button takeButton =new Button(this);
         RelativeLayout myLayout = new RelativeLayout(this);
-        TakeButton.setText("Take Attendance");
-        myLayout.addView(TakeButton);
+        takeButton.setText("Take Attendance");
+        myLayout.addView(takeButton);
         setContentView(myLayout);
     }
-    public void ViewAttendance() {
-        Button ViewButton =new Button(this);
+    public void viewAttendance() {
+        Button viewButton =new Button(this);
         RelativeLayout myLayout = new RelativeLayout(this);
-        ViewButton.setText("View Attendance");
-        myLayout.addView(ViewButton);
+        viewButton.setText("View Attendance");
+        myLayout.addView(viewButton);
         setContentView(myLayout);
     }
 }

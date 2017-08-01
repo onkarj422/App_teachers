@@ -27,12 +27,12 @@ public class LoginActivity extends AppCompatActivity {
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String loginId = editLogin.getText().toString().toLowerCase();
+                String loginid = editLogin.getText().toString().toLowerCase();
                 String password = editPassword.getText().toString().toLowerCase();
-                MESSAGE = loginId;
+                MESSAGE = loginid;
                 Context context = getApplicationContext();
                 MyApplication s = new MyApplication();
-                if (Objects.equals(s.selectPassword(loginId), password)) {
+                if (Objects.equals(s.selectPassword(loginid), password)) {
                     Toast.makeText(context,"Login Successful",Toast.LENGTH_SHORT).show();
                     nextActivity();
                 }else {
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void nextActivity() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("loginID",MESSAGE);
+        intent.putExtra("loginId",MESSAGE);
         startActivity(intent);
     }
 }

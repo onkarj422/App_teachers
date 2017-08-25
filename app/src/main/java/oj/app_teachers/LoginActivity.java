@@ -10,16 +10,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editLogin;
     private EditText editPassword;
     public String MESSAGE = null;
+    UserSessionManager session;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session = new UserSessionManager(getApplicationContext());
+        if (session.checkLogin(getApplicationContext())) {
+            mainActivity();
+        }
         setContentView(R.layout.activity_login);
         editLogin = (EditText) findViewById(R.id.LoginID);
         editPassword = (EditText) findViewById(R.id.Password);
@@ -27,23 +34,29 @@ public class LoginActivity extends AppCompatActivity {
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MyApplication s = new MyApplication();
+                Context context = getApplicationContext();
                 String loginid = editLogin.getText().toString().toLowerCase();
                 String password = editPassword.getText().toString().toLowerCase();
+                String sessionKeyPass = UUID.randomUUID().toString();
+
                 MESSAGE = loginid;
-                Context context = getApplicationContext();
-                MyApplication s = new MyApplication();
                 if (Objects.equals(s.selectPassword(loginid), password)) {
-                    Toast.makeText(context,"Login Successful",Toast.LENGTH_SHORT).show();
-                    nextActivity();
-                }else {
-                    Toast.makeText(context,"Login Failed, Please Check Username or Password",Toast.LENGTH_SHORT).show();
+                    session.createLoginSession(loginid, sessionKeyPass);
+                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
+                    mainActivity();
+                } else {
+                    Toast.makeText(context, "Login Failed, Please Check Username or Password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    public void nextActivity() {
+
+    public void mainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("loginId",MESSAGE);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("loginId", MESSAGE);
         startActivity(intent);
     }
 }

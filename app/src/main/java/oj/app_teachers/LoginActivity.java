@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,17 +18,10 @@ public class LoginActivity extends AppCompatActivity {
     public String MESSAGE = null;
     UserSessionManager session;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        session = new UserSessionManager(getApplicationContext());
-        if (session.checkLogin(getApplicationContext())) {
-            Intent i = new Intent(this, MainActivity.class);
-            this.startActivity (i);
-            this.finishActivity (0);
-        }
         editLogin = (EditText) findViewById(R.id.LoginID);
         editPassword = (EditText) findViewById(R.id.Password);
         Button clickButton = (Button) findViewById(R.id.button);
@@ -44,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 MESSAGE = loginid;
                 if (Objects.equals(s.selectPassword(loginid), password)) {
+                    session = new UserSessionManager(getApplicationContext());
                     session.createLoginSession(loginid, sessionKeyPass);
                     Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
                     mainActivity();
@@ -56,9 +49,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void mainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("loginId", MESSAGE);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 }

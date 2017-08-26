@@ -1,48 +1,53 @@
 package oj.app_teachers;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-
-import java.util.HashMap;
 import java.util.Objects;
-import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
+    UserSessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApplication s = new MyApplication();
+        session = new UserSessionManager(getApplicationContext());
+        if (!session.isUserLoggedIn()) {
+            loginActivity();
+        }
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        Intent intent = getIntent();
-        String loginID = intent.getStringExtra("loginId");
-
+        String loginID = session.getKeyLoginid();
         if (Objects.equals(s.selectRole(loginID), "student")) {
             viewAttendance();
         } else if (Objects.equals(s.selectRole(loginID), "teacher")) {
             takeAttendance();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.logout:
+                session.logoutUser();
+                loginActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -60,5 +65,12 @@ public class MainActivity extends AppCompatActivity {
         viewButton.setText("View Attendance");
         myLayout.addView(viewButton);
         setContentView(myLayout);
+    }
+
+    public void loginActivity() {
+        Intent i = new Intent(this, LoginActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();
     }
 }

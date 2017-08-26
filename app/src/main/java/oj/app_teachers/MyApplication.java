@@ -26,14 +26,14 @@ public class MyApplication extends Application {
         // add for verbose logging
         // FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(!prefs.getBoolean("firstTime", false)) {
-            String[] columnsNames = new String[] { "vivian", "onkar", "karan", "vijay" };
-            String[] columnsPasswords = new String[] { "vivian123", "onkar123", "karan123", "vijay123" };
-            String[] columnsRole = new String[] { "student", "student", "student", "teacher" };
-            for(int i = 0; i < 4; i++)
+        if (!prefs.getBoolean("firstTime", false)) {
+            String[] columnsNames = new String[]{"vivian", "onkar", "karan", "vijay"};
+            String[] columnsPasswords = new String[]{"vivian123", "onkar123", "karan123", "vijay123"};
+            String[] columnsRole = new String[]{"student", "student", "student", "teacher"};
+            for (int i = 0; i < 4; i++)
                 SQLite.insert(User.class)
                         .columns(User_Table.id, User_Table.Name, User_Table.Password, User_Table.Role)
-                        .values(i+1, columnsNames[i], columnsPasswords[i], columnsRole[i])
+                        .values(i + 1, columnsNames[i], columnsPasswords[i], columnsRole[i])
                         .execute();
         }
         SharedPreferences.Editor editor = prefs.edit();
@@ -50,6 +50,7 @@ public class MyApplication extends Application {
         }
         return textPassword;
     }
+
     public String selectRole(String compareName) {
         List<User> userList = SQLite.select(User_Table.Role).from(User.class).where(User_Table.Name.is(compareName)).queryList();
         String textRole = null;

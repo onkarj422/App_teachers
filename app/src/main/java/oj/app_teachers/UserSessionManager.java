@@ -27,8 +27,7 @@ public class UserSessionManager {
 
     public UserSessionManager(Context context) {
         this._context = context;
-        prefs = PreferenceManager
-                .getDefaultSharedPreferences(_context);
+        prefs = _context.getSharedPreferences(PREFER_NAME, PRIVATE_MODE);
         editor = prefs.edit();
     }
 

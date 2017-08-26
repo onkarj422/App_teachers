@@ -24,6 +24,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        session = new UserSessionManager(getApplicationContext());
+        if (session.checkLogin(getApplicationContext())) {
+            Intent i = new Intent(this, MainActivity.class);
+            this.startActivity (i);
+            this.finishActivity (0);
+        }
         editLogin = (EditText) findViewById(R.id.LoginID);
         editPassword = (EditText) findViewById(R.id.Password);
         Button clickButton = (Button) findViewById(R.id.button);
@@ -35,10 +41,6 @@ public class LoginActivity extends AppCompatActivity {
                 String loginid = editLogin.getText().toString().toLowerCase();
                 String password = editPassword.getText().toString().toLowerCase();
                 String sessionKeyPass = UUID.randomUUID().toString();
-                session = new UserSessionManager(getApplicationContext());
-                if (session.checkLogin(getApplicationContext())) {
-                    mainActivity();
-                }
 
                 MESSAGE = loginid;
                 if (Objects.equals(s.selectPassword(loginid), password)) {

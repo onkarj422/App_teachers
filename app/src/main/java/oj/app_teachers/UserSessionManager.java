@@ -48,10 +48,6 @@ public class UserSessionManager {
     public boolean checkLogin(Context context) {
         this._context = context;
         if (!isUserLoggedIn(_context)) {
-            Intent i = new Intent(_context, LoginActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            _context.startActivity(i);
             return true;
         }
         return false;

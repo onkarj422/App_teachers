@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 def dbflow_version = "4.0.3"
 
 android {
@@ -6,7 +6,6 @@ android {
     buildToolsVersion "26.0.0"
 
     defaultConfig {
-        applicationId "oj.app_teachers"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1

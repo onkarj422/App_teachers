@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                     session = new UserSessionManager(getApplicationContext());
                     session.createLoginSession(loginid, sessionKeyPass);
                     Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
-                    mainActivity();
+                    dashboardActivity();
                 } else {
                     Toast.makeText(context, "Login Failed, Please Check Username or Password", Toast.LENGTH_SHORT).show();
                 }
@@ -47,8 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void mainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void dashboardActivity() {
+        Intent intent = new Intent(this, DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

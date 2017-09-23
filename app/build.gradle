@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 def dbflow_version = "4.0.3"
 
 android {

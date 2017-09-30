@@ -1,47 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="oj.app_teachers.Attendance">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <include layout="@layout/content_dashboard" />
+
+        <include layout="@layout/toolbar_layout" />
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
 
-            <TextView
+            <android.support.v7.widget.CardView
+                android:id="@+id/card1"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center|bottom"
-                android:text="Record Attendance"
-                android:textAlignment="center"
-                android:textSize="20dp" />
-        </android.support.v7.widget.CardView>
+                android:layout_height="280dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="2dp"
+                app:elevation="6dp">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="10dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="?android:dividerHorizontal"
+                    android:showDividers="middle">
 
-            <TextView
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/button_record"
+                        style="@style/ButtonBottomAligned"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="@string/record_attendance" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center|bottom"
-                android:text="View Attendance"
-                android:textAlignment="center"
-                android:textSize="20dp" />
-        </android.support.v7.widget.CardView>
+                android:layout_height="280dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="2dp"
+                app:elevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="?android:dividerHorizontal"
+                    android:showDividers="middle">
+
+                    <android.support.v7.widget.AppCompatButton
+                        style="@style/ButtonBottomAligned"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="@string/view_attendance" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

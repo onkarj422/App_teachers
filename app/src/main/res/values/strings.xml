@@ -1,10 +1,38 @@
 <resources>
     <string name="app_name">app_teachers</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_dashboard">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_time_table">Timetable</string>
+    <string name="title_activity_events">Events And Notifications</string>
+    <string name="title_activity_attendance">Attendance</string>
+    <string name="title_activity_students">Students</string>
+    <string name="app_title">College Planner</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="time_table">Time Table</string>
+    <string name="students">Students</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_id">Login ID</string>
+    <string name="record_attendance">Record Attendance</string>
+    <string name="view_attendance">View Attendance</string>
+    <string name="logo_image">Logo Image</string>
+    <string name="hr_day">HR/DAY</string>
+    <string name="_10_00">10:00</string>
+    <string name="mon">MON</string>
+    <string name="lecture">Lecture</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="attendance">Attendance</string>
+    <string name="timetable">Timetable</string>
+    <string name="notifications">Notifications</string>
+    <string name="account">Account</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
 </resources>

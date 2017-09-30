@@ -1,9 +1,10 @@
 package oj.app_teachers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+
+import pl.polidea.view.ZoomView;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +35,15 @@ public class DashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Dashboard");
+        setTitle("Home");
+
+        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.timetable_layout, null, false);
+        v.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+        ZoomView zoomView = new ZoomView(this);
+        zoomView.addView(v);
+
+        LinearLayout mainContainer = (LinearLayout) findViewById(R.id.timetable_container);
+        mainContainer.addView(zoomView);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity
         }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -70,23 +83,22 @@ public class DashboardActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_attendance) {
-            Intent attendanceIntent = new Intent(this, Attendance.class);
-            startActivity(attendanceIntent);
+            attendanceActivity();
         } else if (id == R.id.nav_timetable) {
-
+            timetableActivity();
         } else if (id == R.id.nav_notif) {
-
+            eventsActivity();
         } else if (id == R.id.nav_students) {
-
+            studentsActivity();
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
@@ -105,5 +117,40 @@ public class DashboardActivity extends AppCompatActivity
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    public void attendanceActivity() {
+        Intent i = new Intent(this, Attendance.class);
+        startActivity(i);
+    }
+
+    public void timetableActivity() {
+        Intent i = new Intent(this, TimeTable.class);
+        startActivity(i);
+    }
+
+    public void timetableActivityClick(View v) {
+        Intent i = new Intent(this, TimeTable.class);
+        startActivity(i);
+    }
+
+    public void eventsActivity() {
+        Intent i = new Intent(this, EventsActivity.class);
+        startActivity(i);
+    }
+
+    public void eventsActivityClick(View v) {
+        Intent i = new Intent(this, EventsActivity.class);
+        startActivity(i);
+    }
+
+    public void studentsActivity() {
+        Intent i = new Intent(this, Students.class);
+        startActivity(i);
+    }
+
+    public void studentsActivityClick(View v) {
+        Intent i = new Intent(this, Students.class);
+        startActivity(i);
     }
 }

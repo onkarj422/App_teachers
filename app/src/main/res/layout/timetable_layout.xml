@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/timetable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/hr_day" />
+
+        <TextView
+            android:id="@+id/timeslot1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/timeslot9"
+            android:padding="3dip"
+            android:text="@string/_10_00" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/mon" />
+
+        <TextView
+            android:id="@+id/mon_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/mon_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/tue" />
+
+        <TextView
+            android:id="@+id/tue_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/tue_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/wed" />
+
+        <TextView
+            android:id="@+id/wed_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/wed_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/thu" />
+
+        <TextView
+            android:id="@+id/thu_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/thu_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/fri" />
+
+        <TextView
+            android:id="@+id/fri_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/fri_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/sat" />
+
+        <TextView
+            android:id="@+id/sat_lec1"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec2"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec3"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec4"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec5"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec6"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec7"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec8"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/sat_lec9"
+            android:padding="3dip"
+            android:text="@string/lecture" />
+    </TableRow>
+
+</TableLayout>

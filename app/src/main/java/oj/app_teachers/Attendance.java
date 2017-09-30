@@ -2,11 +2,12 @@ package oj.app_teachers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import java.util.Objects;
 
-public class Attendance extends DashboardActivity {
+public class Attendance extends AppCompatActivity {
 
     UserSessionManager session;
 
@@ -23,13 +24,15 @@ public class Attendance extends DashboardActivity {
         }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Attendance");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    /*
     @Override
     public void onBackPressed() {
         dashboardActivity();
     }
+    */
 
     public void dashboardActivity() {
         Intent intent = new Intent(this, DashboardActivity.class);

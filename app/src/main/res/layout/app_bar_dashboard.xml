@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,23 +7,122 @@
     tools:context="oj.app_teachers.DashboardActivity">
 
 
-    <include layout="@layout/content_dashboard" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <include layout="@layout/toolbar_layout"
-            android:id="@+id/toolbarinc"/>
+        <include layout="@layout/content_dashboard" />
+
+        <include layout="@layout/toolbar_layout" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/toolbarinc"
-            android:layout_margin="10dp"
+            android:layout_height="230dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             app:cardCornerRadius="2dp"
-            app:cardElevation="6dp" />
+            app:elevation="3dp">
 
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="?android:dividerHorizontal"
+                android:orientation="vertical"
+                android:showDividers="middle">
 
-</android.support.design.widget.CoordinatorLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@mipmap/ic_today_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:gravity="start|center"
+                    android:onClick="eventsActivityClick"
+                    android:text="@string/upcoming_events"
+                    android:theme="@style/CardTitleText"
+                    tools:targetApi="m" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="2dp"
+            app:elevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="?android:dividerHorizontal"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@mipmap/ic_schedule_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:gravity="start|center"
+                    android:onClick="timetableActivityClick"
+                    android:text="@string/time_table"
+                    android:theme="@style/CardTitleText"
+                    tools:targetApi="m" />
+
+                <LinearLayout
+                    android:id="@+id/timetable_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/timetable_layout" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="2dp"
+            app:elevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="?android:dividerHorizontal"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@mipmap/ic_face_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:gravity="start|center"
+                    android:onClick="studentsActivityClick"
+                    android:text="@string/students"
+                    android:theme="@style/CardTitleText"
+                    tools:targetApi="m" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</ScrollView>

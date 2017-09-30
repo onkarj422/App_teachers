@@ -1,7 +1,6 @@
 package oj.app_teachers;
 
 import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
@@ -10,7 +9,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
  * Created by Onkar J on 20-07-2017.
  */
 @Table(database = AppDatabase.class)
-public class User extends BaseModel {
+class User extends BaseModel {
     @Column
     @PrimaryKey
     private int id;
@@ -27,8 +26,8 @@ public class User extends BaseModel {
     public int getId() {
         return id;
     }
-    public String getPassword() { return password; }
-    public String getRole() { return role; }
+    String getPassword() { return password; }
+    String getRole() { return role; }
     public String getName() {
         return name;
     }
@@ -37,7 +36,7 @@ public class User extends BaseModel {
         this.id = id;
     }
     public void setName(String name) {this.name = name;}
-    public void setPassword(String password) { this.password = password; }
-    public void setRole(String role) { this.role = role; }
+    void setPassword(String password) { this.password = password; }
+    void setRole(String role) { this.role = role; }
 
 }

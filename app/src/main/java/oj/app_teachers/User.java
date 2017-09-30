@@ -14,7 +14,7 @@ class User extends BaseModel {
     @PrimaryKey
     private int id;
 
-    @Column(name= "Name")
+    @Column(name = "Name")
     private String name;
 
     @Column(name = "Password")
@@ -26,8 +26,15 @@ class User extends BaseModel {
     public int getId() {
         return id;
     }
-    String getPassword() { return password; }
-    String getRole() { return role; }
+
+    String getPassword() {
+        return password;
+    }
+
+    String getRole() {
+        return role;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,8 +42,17 @@ class User extends BaseModel {
     public void setId(int id) {
         this.id = id;
     }
-    public void setName(String name) {this.name = name;}
-    void setPassword(String password) { this.password = password; }
-    void setRole(String role) { this.role = role; }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    void setPassword(String password) {
+        this.password = password;
+    }
+
+    void setRole(String role) {
+        this.role = role;
+    }
 
 }

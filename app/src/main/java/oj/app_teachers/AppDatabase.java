@@ -1,4 +1,5 @@
 package oj.app_teachers;
+
 import com.raizlabs.android.dbflow.annotation.Database;
 
 /**
